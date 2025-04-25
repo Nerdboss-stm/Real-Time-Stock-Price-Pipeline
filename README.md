@@ -47,3 +47,6 @@ pip install -r requirements.txt
 # Start Kafka before running producer
 python ingestion/kafka_producer.py
 
+> ⚙️ Spark Version: 3.5.5  
+> 🧩 Kafka Integration: spark-sql-kafka-0-10_2.12:3.5.0
+
