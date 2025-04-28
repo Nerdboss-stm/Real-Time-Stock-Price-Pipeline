@@ -25,6 +25,8 @@ df_raw = spark.readStream \
     .option("startingOffsets", "latest") \
     .load()
 
+df = df.selectExpr("CAST(value AS BINARY)").select(from_avro("value", schema).alias("data"))
+
 # Parse the JSON messages
 df_parsed = df_raw.selectExpr("CAST(value AS STRING) as json_str") \
     .withColumn("json_data", from_json("json_str", message_schema)) \
